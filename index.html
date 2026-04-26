@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Nexus Licensing</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:Inter,sans-serif}
+body{background:#03030a;color:white;overflow-x:hidden}
+canvas{position:absolute;top:0;right:0;width:55%;height:620px;z-index:1}
+.page{position:relative;min-height:100vh;background:
+radial-gradient(circle at 72% 30%,rgba(124,58,237,.35),transparent 35%),
+radial-gradient(circle at 20% 20%,rgba(80,40,180,.18),transparent 35%),
+#03030a}
+.nav{height:78px;padding:0 6.5%;display:flex;align-items:center;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.08);position:relative;z-index:5;background:rgba(3,3,10,.65);backdrop-filter:blur(18px)}
+.logo{display:flex;align-items:center;gap:12px;font-weight:800;font-size:23px;letter-spacing:.5px}
+.logo-mark{width:42px;height:42px;border-radius:12px;background:linear-gradient(135deg,#8b5cf6,#4c1d95);display:grid;place-items:center;box-shadow:0 0 30px #7c3aed}
+.logo small{display:block;font-size:11px;letter-spacing:5px;color:#b8a7ff}
+.links{display:flex;gap:34px;color:#c7c7d3;font-weight:600;font-size:14px}
+.links span:first-child{color:#8b5cf6;border-bottom:2px solid #8b5cf6;padding-bottom:22px}
+.actions{display:flex;gap:14px}
+button{border:1px solid rgba(255,255,255,.16);background:rgba(255,255,255,.03);color:white;border-radius:10px;padding:14px 23px;font-weight:700}
+.primary{background:linear-gradient(135deg,#8b5cf6,#6d28d9);border:none;box-shadow:0 0 30px rgba(124,58,237,.35)}
+.hero{position:relative;z-index:3;padding:64px 6.5% 0;min-height:545px}
+.badge{display:inline-flex;align-items:center;gap:9px;color:#a78bfa;background:rgba(124,58,237,.12);border:1px solid rgba(124,58,237,.3);border-radius:12px;padding:10px 16px;font-size:12px;font-weight:800}
+h1{font-size:58px;line-height:1.05;margin-top:28px;letter-spacing:-2px}
+h1 span{background:linear-gradient(90deg,#8b5cf6,#6d28d9);-webkit-background-clip:text;color:transparent}
+.desc{margin-top:20px;color:#c9c9d4;max-width:590px;font-size:16px;line-height:1.65}
+.cta{display:flex;gap:18px;margin-top:30px}
+.benefits{display:flex;gap:34px;margin-top:34px;flex-wrap:wrap}
+.benefit{display:flex;gap:10px;align-items:flex-start}
+.check{color:#a855f7;font-weight:800;font-size:20px}
+.benefit strong{font-size:14px}
+.benefit p{font-size:13px;color:#a5a5b5;margin-top:4px}
+.stats{margin:0 6.5%;position:relative;z-index:4;background:rgba(14,17,31,.72);border:1px solid rgba(255,255,255,.08);border-radius:16px;display:grid;grid-template-columns:repeat(4,1fr);backdrop-filter:blur(22px);box-shadow:0 20px 80px rgba(0,0,0,.35)}
+.stat{padding:30px 34px;display:flex;gap:18px;align-items:center;border-right:1px solid rgba(255,255,255,.09)}
+.stat:last-child{border-right:none}
+.icon{width:50px;height:50px;border-radius:16px;background:rgba(124,58,237,.18);display:grid;place-items:center;color:#a855f7;font-size:24px;box-shadow:inset 0 0 20px rgba(124,58,237,.16)}
+.stat h2{font-size:30px}
+.stat p{color:#b7b7c4;font-size:14px;margin-top:4px}
+.trust{text-align:center;color:#aaa;letter-spacing:3px;font-size:12px;font-weight:800;margin:34px 0}
+.features{padding:0 6.5% 70px;display:grid;grid-template-columns:1.1fr repeat(4,1fr);gap:16px;align-items:stretch}
+.intro h2{font-size:31px;line-height:1.15;margin-top:20px}
+.intro span{color:#8b5cf6}
+.intro p{color:#b8b8c8;line-height:1.6;margin:18px 0 28px}
+.card{background:linear-gradient(180deg,rgba(18,22,37,.88),rgba(8,10,20,.9));border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:34px 24px;min-height:225px;box-shadow:0 20px 55px rgba(0,0,0,.24)}
+.card .big{font-size:36px;color:#8b5cf6;margin-bottom:24px}
+.card h3{font-size:17px;margin-bottom:12px}
+.card p{color:#b7b7c8;line-height:1.55;font-size:14px}
+.gridlines{position:absolute;inset:78px 0 0;background-image:
+linear-gradient(rgba(139,92,246,.08) 1px,transparent 1px),
+linear-gradient(90deg,rgba(139,92,246,.08) 1px,transparent 1px);
+background-size:80px 80px;mask-image:linear-gradient(to bottom,black,transparent 70%);z-index:0;transform:perspective(900px) rotateX(62deg) scale(1.5);transform-origin:top}
+@media(max-width:900px){
+canvas{opacity:.35;width:100%}
+.links{display:none}
+h1{font-size:42px}
+.stats{grid-template-columns:1fr}
+.stat{border-right:none;border-bottom:1px solid rgba(255,255,255,.08)}
+.features{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<div class="page">
+<div class="gridlines"></div>
+<canvas id="three"></canvas>
+
+<nav class="nav">
+  <div class="logo">
+    <div class="logo-mark">◆</div>
+    <div>NEXUS <small>LICENSING</small></div>
+  </div>
+  <div class="links">
+    <span>Home</span><span>Licenses</span><span>Benefits⌄</span><span>Our Platform</span><span>About Us</span><span>Contact</span>
+  </div>
+  <div class="actions">
+    <button class="primary">Apply for License</button>
+    <button>Login</button>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="badge">◆ ROBLOX LICENSE HOLDER</div>
+  <h1>Official Licenses.<br>Unlimited <span>Possibilities.</span></h1>
+  <p class="desc">Nexus Licensing is an official Roblox License Holder, empowering creators and brands to build, grow, and monetize with confidence.</p>
+  <div class="cta">
+    <button class="primary">Browse Licenses →</button>
+    <button>Apply Now →</button>
+  </div>
+
+  <div class="benefits">
+    <div class="benefit"><div class="check">✓</div><div><strong>Officially Licensed</strong><p>By Roblox</p></div></div>
+    <div class="benefit"><div class="check">✓</div><div><strong>Fast & Secure</strong><p>Approval Process</p></div></div>
+    <div class="benefit"><div class="check">✓</div><div><strong>Trusted by Top</strong><p>Creators & Brands</p></div></div>
+    <div class="benefit"><div class="check">✓</div><div><strong>24/7 Dedicated</strong><p>Support</p></div></div>
+  </div>
+</section>
+
+<section class="stats">
+  <div class="stat"><div class="icon">▣</div><div><h2>13</h2><p>Active Licenses</p></div></div>
+  <div class="stat"><div class="icon">♟</div><div><h2>0</h2><p>Trusted Partners</p></div></div>
+  <div class="stat"><div class="icon">▥</div><div><h2>109</h2><p>Monthly Experiences</p></div></div>
+  <div class="stat"><div class="icon">⟳</div><div><h2>99.9%</h2><p>Uptime & Reliability</p></div></div>
+</section>
+
+<div class="trust">TRUSTED BY LEADING BRANDS & CREATORS</div>
+
+<section class="features">
+  <div class="intro">
+    <h2>Why Choose<br><span>Nexus Licensing?</span></h2>
+    <p>We provide everything you need to create, launch, and scale official Roblox experiences.</p>
+    <button class="primary">View All Benefits →</button>
+  </div>
+  <div class="card"><div class="big">🛡</div><h3>Official & Secure</h3><p>All licenses are issued officially by Roblox. 100% compliant and secure.</p></div>
+  <div class="card"><div class="big">🎧</div><h3>Premium Support</h3><p>Get 24/7 priority support from our expert team whenever you need it.</p></div>
+  <div class="card"><div class="big">⚡</div><h3>Fast Approvals</h3><p>Our streamlined process gets you licensed and building faster.</p></div>
+  <div class="card"><div class="big">📈</div><h3>Grow & Scale</h3><p>Access powerful tools, resources, and partnerships to scale your experience.</p></div>
+</section>
+</div>
+
+<script>
+const canvas = document.getElementById("three");
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(45, canvas.clientWidth / canvas.clientHeight, 0.1, 1000);
+const renderer = new THREE.WebGLRenderer({ canvas, alpha:true, antialias:true });
+
+function resize(){
+  const w = canvas.clientWidth;
+  const h = canvas.clientHeight;
+  renderer.setSize(w,h,false);
+  camera.aspect = w/h;
+  camera.updateProjectionMatrix();
+}
+resize();
+window.addEventListener("resize", resize);
+
+camera.position.set(0, 1.7, 7);
+
+const ambient = new THREE.AmbientLight(0xffffff, .45);
+scene.add(ambient);
+
+const purple = new THREE.PointLight(0x8b5cf6, 3.5, 20);
+purple.position.set(2,3,3);
+scene.add(purple);
+
+const blue = new THREE.PointLight(0x4f46e5, 2, 20);
+blue.position.set(-3,-1,4);
+scene.add(blue);
+
+const group = new THREE.Group();
+scene.add(group);
+
+const baseGeo = new THREE.BoxGeometry(3.1, .55, 2.25);
+const baseMat = new THREE.MeshStandardMaterial({
+  color:0x080915,
+  metalness:.85,
+  roughness:.28,
+  emissive:0x1b0b3d,
+  emissiveIntensity:.35
+});
+const base = new THREE.Mesh(baseGeo, baseMat);
+base.position.y = -1.25;
+group.add(base);
+
+const baseEdges = new THREE.LineSegments(
+  new THREE.EdgesGeometry(baseGeo),
+  new THREE.LineBasicMaterial({color:0x8b5cf6})
+);
+baseEdges.position.copy(base.position);
+group.add(baseEdges);
+
+const shieldShape = new THREE.Shape();
+shieldShape.moveTo(0,1.55);
+shieldShape.lineTo(1.2,1.05);
+shieldShape.lineTo(.95,-.65);
+shieldShape.quadraticCurveTo(.55,-1.25,0,-1.55);
+shieldShape.quadraticCurveTo(-.55,-1.25,-.95,-.65);
+shieldShape.lineTo(-1.2,1.05);
+shieldShape.lineTo(0,1.55);
+
+const shieldGeo = new THREE.ExtrudeGeometry(shieldShape,{depth:.28,bevelEnabled:true,bevelThickness:.06,bevelSize:.05,bevelSegments:3});
+const shieldMat = new THREE.MeshStandardMaterial({
+  color:0x111122,
+  metalness:.95,
+  roughness:.18,
+  emissive:0x2b0a5f,
+  emissiveIntensity:.45
+});
+const shield = new THREE.Mesh(shieldGeo, shieldMat);
+shield.position.set(0,.45,0);
+shield.rotation.y = .05;
+group.add(shield);
+
+const shieldEdge = new THREE.LineSegments(
+  new THREE.EdgesGeometry(shieldGeo),
+  new THREE.LineBasicMaterial({color:0xa855f7})
+);
+shieldEdge.position.copy(shield.position);
+shieldEdge.rotation.copy(shield.rotation);
+group.add(shieldEdge);
+
+const diamondGeo = new THREE.BoxGeometry(.95,.95,.18);
+const diamondMat = new THREE.MeshStandardMaterial({
+  color:0xbca7ff,
+  metalness:.9,
+  roughness:.15,
+  emissive:0x8b5cf6,
+  emissiveIntensity:.35
+});
+const diamond = new THREE.Mesh(diamondGeo,diamondMat);
+diamond.position.set(0,.45,.32);
+diamond.rotation.z = Math.PI/4;
+group.add(diamond);
+
+const holeGeo = new THREE.BoxGeometry(.32,.32,.22);
+const holeMat = new THREE.MeshStandardMaterial({color:0x050510,metalness:.5,roughness:.3});
+const hole = new THREE.Mesh(holeGeo,holeMat);
+hole.position.set(0,.45,.45);
+hole.rotation.z = Math.PI/4;
+group.add(hole);
+
+for(let i=0;i<3;i++){
+  const ringGeo = new THREE.TorusGeometry(2.25+i*.3,.012,16,160);
+  const ringMat = new THREE.MeshBasicMaterial({color:0x8b5cf6,transparent:true,opacity:.65-i*.16});
+  const ring = new THREE.Mesh(ringGeo,ringMat);
+  ring.rotation.x = Math.PI/2;
+  ring.position.y = -1.34;
+  ring.scale.y = .48;
+  group.add(ring);
+}
+
+const particles = [];
+for(let i=0;i<90;i++){
+  const geo = new THREE.SphereGeometry(.018,8,8);
+  const mat = new THREE.MeshBasicMaterial({color:0x8b5cf6,transparent:true,opacity:Math.random()});
+  const p = new THREE.Mesh(geo,mat);
+  p.position.set((Math.random()-.5)*7,(Math.random()-.5)*4,(Math.random()-.5)*4);
+  scene.add(p);
+  particles.push(p);
+}
+
+group.position.set(.8,.15,0);
+group.rotation.x = -.08;
+
+function animate(){
+  requestAnimationFrame(animate);
+  const t = Date.now()*0.001;
+
+  group.rotation.y = Math.sin(t*.55)*.12;
+  group.position.y = Math.sin(t*1.2)*.08;
+
+  diamond.rotation.z = Math.PI/4 + t*.45;
+
+  particles.forEach((p,i)=>{
+    p.position.y += Math.sin(t+i)*.002;
+    p.material.opacity = .25 + Math.abs(Math.sin(t+i))*.65;
+  });
+
+  renderer.render(scene,camera);
+}
+animate();
+</script>
+</body>
+</html>
