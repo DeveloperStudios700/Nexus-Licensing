@@ -464,27 +464,16 @@ animate();
 </aside>
 
 <script>
-/* Cursor Glow */
+
+/* ===== CURSOR GLOW ===== */
 const glow = document.getElementById("cursorGlow");
+
 document.addEventListener("mousemove", e=>{
   glow.style.left = e.clientX + "px";
   glow.style.top = e.clientY + "px";
 });
 
-/* About Panel */
-function openAboutPanel(){
-  document.getElementById("aboutPanel").classList.add("active");
-  document.getElementById("panelBackdrop").classList.add("active");
-}
-
-function closeAboutPanel(){
-  document.getElementById("aboutPanel").classList.remove("active");
-  document.getElementById("panelBackdrop").classList.remove("active");
-}
-
-  <script>
-
-/* ===== PANEL FUNCTIONS (FIXED) ===== */
+/* ===== BENEFITS PANEL ===== */
 function openBenefitsPanel(){
   document.getElementById("benefitsPanel").classList.add("active");
   document.getElementById("panelBackdrop").classList.add("active");
@@ -505,7 +494,7 @@ function closeAboutPanel(){
   document.getElementById("aboutPanel").classList.remove("active");
   document.getElementById("panelBackdrop").classList.remove("active");
 }
-  
+
 </script>
 </body>
 </html>
