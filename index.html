@@ -398,6 +398,90 @@ function animate(){
   renderer.render(scene,camera);
 }
 animate();
+
+  <!-- ===== ADDITIONS START ===== -->
+
+<!-- Cursor Glow -->
+<div class="cursor-glow" id="cursorGlow"></div>
+
+<style>
+.cursor-glow{
+  position:fixed;
+  width:300px;
+  height:300px;
+  border-radius:50%;
+  background:radial-gradient(circle, rgba(139,92,246,0.25), transparent 70%);
+  pointer-events:none;
+  transform:translate(-50%,-50%);
+  z-index:2;
+  filter:blur(20px);
+}
+
+/* About Panel */
+.about-panel{
+  position:fixed;
+  top:0;
+  right:-480px;
+  width:460px;
+  max-width:92%;
+  height:100vh;
+  z-index:60;
+  background:linear-gradient(180deg,rgba(14,17,31,.98),rgba(5,5,16,.98));
+  border-left:1px solid rgba(255,255,255,.1);
+  box-shadow:-30px 0 90px rgba(0,0,0,.65), -5px 0 40px rgba(139,92,246,.2);
+  padding:30px;
+  transition:.45s cubic-bezier(.16,1,.3,1);
+  overflow-y:auto;
+}
+.about-panel.active{right:0}
+</style>
+
+<!-- About Panel -->
+<aside class="about-panel" id="aboutPanel">
+  <div class="panel-top">
+    <h2>About Us</h2>
+    <div class="close-panel" onclick="closeAboutPanel()">✕</div>
+  </div>
+
+  <p class="panel-sub">
+    Nexus Licensing is a next-generation Roblox licensing company built for performance, reliability, and premium design.
+  </p>
+
+  <div class="panel-benefit">
+    <h3>🏢 Who We Are</h3>
+    <p>We are a modern licensing platform focused on creators and large-scale Roblox experiences.</p>
+  </div>
+
+  <div class="panel-benefit">
+    <h3>🎯 Our Mission</h3>
+    <p>To create the most professional and efficient licensing system in Roblox.</p>
+  </div>
+
+  <div class="panel-benefit">
+    <h3>⚡ What Makes Us Different</h3>
+    <p>Speed, clean UI, reliability, and better systems than competitors.</p>
+  </div>
+</aside>
+
+<script>
+/* Cursor Glow */
+const glow = document.getElementById("cursorGlow");
+document.addEventListener("mousemove", e=>{
+  glow.style.left = e.clientX + "px";
+  glow.style.top = e.clientY + "px";
+});
+
+/* About Panel */
+function openAboutPanel(){
+  document.getElementById("aboutPanel").classList.add("active");
+  document.getElementById("panelBackdrop").classList.add("active");
+}
+
+function closeAboutPanel(){
+  document.getElementById("aboutPanel").classList.remove("active");
+  document.getElementById("panelBackdrop").classList.remove("active");
+}
+  
 </script>
 </body>
 </html>
