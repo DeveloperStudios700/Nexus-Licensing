@@ -175,7 +175,7 @@ h1{font-size:42px}
     <div>NEXUS <small>LICENSING</small></div>
   </div>
   <div class="links">
-    <span>Home</span><span onclick="scrollToLicenses()">Licenses</span><span onclick="openBenefitsPanel()">Benefits⌄</span><span>Our Platform</span><span onclick="openAboutPanel()">About Us</span><span>Contact</span>
+    <span>Home</span><span onclick="openLicensesPanel()">Licenses⌄</span><span onclick="openBenefitsPanel()">Benefits⌄</span><span>Our Platform</span><span onclick="openAboutPanel()">About Us</span><span>Contact</span>
   </div>
   <div class="actions">
     <button class="primary">Apply for License</button>
@@ -222,7 +222,7 @@ h1{font-size:42px}
 </section>
 </div>
 
-<div class="panel-backdrop" id="panelBackdrop" onclick="closeBenefitsPanel(); closeAboutPanel();"></div>
+<div class="panel-backdrop" id="panelBackdrop" onclick="closeBenefitsPanel(); closeAboutPanel(); closeLicensesPanel();"></div>
 
 <aside class="benefits-panel" id="benefitsPanel">
   <div class="panel-top">
@@ -274,10 +274,11 @@ function closeBenefitsPanel(){
 }
 
 document.addEventListener("keydown", function(e){
-  if(e.key === "Escape"){
-    closeBenefitsPanel();
-    closeAboutPanel();
-  }
+if(e.key === "Escape"){
+  closeBenefitsPanel();
+  closeAboutPanel();
+  closeLicensesPanel();
+}
 });
 
 const canvas = document.getElementById("three");
@@ -437,6 +438,16 @@ function closeAboutPanel(){
   document.getElementById("panelBackdrop").classList.remove("active");
 }
 
+  function openLicensesPanel(){
+  document.getElementById("licensesPanel").classList.add("active");
+  document.getElementById("panelBackdrop").classList.add("active");
+}
+
+function closeLicensesPanel(){
+  document.getElementById("licensesPanel").classList.remove("active");
+  document.getElementById("panelBackdrop").classList.remove("active");
+}
+
  </script>
 
 <!-- ABOUT PANEL -->
@@ -449,6 +460,39 @@ function closeAboutPanel(){
   <p class="panel-sub">
     Nexus Licensing is a modern Roblox licensing platform built for performance, reliability, and growth.
   </p>
+</aside>
+
+  <aside class="benefits-panel" id="licensesPanel">
+  <div class="panel-top">
+    <h2>Licenses</h2>
+    <div class="close-panel" onclick="closeLicensesPanel()">✕</div>
+  </div>
+
+  <p class="panel-sub">
+    Explore our official licensing options designed for Roblox creators and businesses.
+  </p>
+
+  <div class="panel-benefit">
+    <h3>🎮 Game Licensing</h3>
+    <p>Get approved to monetize and operate Roblox experiences professionally.</p>
+  </div>
+
+  <div class="panel-benefit">
+    <h3>🏢 Brand Licensing</h3>
+    <p>Partner with brands and launch officially recognized collaborations.</p>
+  </div>
+
+  <div class="panel-benefit">
+    <h3>🔐 Private Systems</h3>
+    <p>Secure access systems for your products, tools, and communities.</p>
+  </div>
+
+  <div class="panel-benefit">
+    <h3>📈 Developer Growth</h3>
+    <p>Tools and support to scale your Roblox business efficiently.</p>
+  </div>
+
+  <button class="primary panel-cta">Apply for License →</button>
 </aside>
 
   </body>
