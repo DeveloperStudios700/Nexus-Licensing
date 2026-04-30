@@ -454,6 +454,16 @@ function closePlatformPanel(){
   document.getElementById("panelBackdrop").classList.remove("active");
 }
 
+  function openPlatformPanel(){
+  document.getElementById("platformPanel").classList.add("active");
+  document.getElementById("panelBackdrop").classList.add("active");
+}
+
+function closePlatformPanel(){
+  document.getElementById("platformPanel").classList.remove("active");
+  document.getElementById("panelBackdrop").classList.remove("active");
+}
+
  </script>
 
 <!-- ABOUT PANEL -->
@@ -501,34 +511,34 @@ function closePlatformPanel(){
   <button class="primary panel-cta">Apply for License →</button>
 </aside>
 
-  <aside class="benefits-panel" id="platformPanel">
+<aside class="benefits-panel" id="platformPanel">
   <div class="panel-top">
     <h2>Our Platform</h2>
     <div class="close-panel" onclick="closePlatformPanel()">✕</div>
   </div>
 
   <p class="panel-sub">
-    Nexus Licensing provides a full platform designed to manage, protect, and scale Roblox experiences.
+    Nexus Licensing provides a powerful platform built for speed, scalability, and professional Roblox development.
   </p>
 
   <div class="panel-benefit">
-    <h3>📊 Dashboard System</h3>
-    <p>Track licenses, approvals, and activity in one clean interface.</p>
+    <h3>⚡ Fast Infrastructure</h3>
+    <p>Optimized systems designed for performance and reliability.</p>
   </div>
 
   <div class="panel-benefit">
-    <h3>🔐 Access Control</h3>
-    <p>Secure systems to manage users, permissions, and ownership.</p>
+    <h3>🔒 Secure Systems</h3>
+    <p>Advanced protection for licenses, users, and data.</p>
   </div>
 
   <div class="panel-benefit">
-    <h3>⚡ Automation</h3>
-    <p>Automated approval flows and backend processes to save time.</p>
+    <h3>📊 Dashboard Tools</h3>
+    <p>Manage licenses, analytics, and users from one clean interface.</p>
   </div>
 
   <div class="panel-benefit">
-    <h3>🌐 Scalable Infrastructure</h3>
-    <p>Built to handle large Roblox experiences and growing communities.</p>
+    <h3>🚀 Scalable Design</h3>
+    <p>Built to grow with creators and large Roblox experiences.</p>
   </div>
 
   <button class="primary panel-cta">Explore Platform →</button>
